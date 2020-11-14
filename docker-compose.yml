@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+    database:
+        image: mysql:8.0
+        container_name: database-container
+        environment:
+            MYSQL_ROOT_PASSWORD: sqlpass
+        ports:
+            - 3316:3306
+        volumes:
+            - ./docker/local/mysql-data:/var/lib/mysql
+        networks:
+            - feed_reader
+    nginx:
+        container_name: nginx-container
+        build:
+            context: .
+            dockerfile: ./docker/local/nginx/Dockerfile
+        volumes:
+            - ./:/var/www/
+        ports:
+            - 8001:80
+        networks:
+            - feed_reader
+    php:
+        container_name: php-container
+        build:
+            context: .
+            dockerfile: ./docker/local/php/Dockerfile
+        environment:
+            APP_ENV: dev
+        volumes:
+            - ./:/var/www/
+        networks:
+            - feed_reader
+
+
+# Docker Volumes
+volumes:
+    mysql-data:
+
+networks:
+    feed_reader:
