@@ -8,19 +8,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libxml2-dev \
         libzip-dev \
         curl \
-#        php7-pdo \
-#        php7-pdo_mysql \
-#        php7-mysqli \
-#        php7-mcrypt \
-#        php7-mbstring \
-#        php7-xml \
-#        php7-openssl \
-#        php7-json \
-#        php7-phar \
-#        php7-zip \
-#        php7-gd \
-#        php7-dom \
-#        php7-session \
     && docker-php-ext-install \
         zip \
         pdo \
