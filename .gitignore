@@ -6,6 +6,7 @@
 /var/
 ./idea
 /vendor/
+/docker/local/mysql-data/
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
