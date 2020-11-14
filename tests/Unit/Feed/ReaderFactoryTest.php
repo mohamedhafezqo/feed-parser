@@ -1,51 +1,20 @@
-<?php
+<?php declare(strict_types=1);
 
+namespace App\Test\Unit\Feed;
 
-namespace App\Test\Unit\Criteria;
-
-use App\Service\Criteria\Contract\FilterInterface;
-use App\Service\Criteria\FilterFactory;
+use App\Service\Feed\ReaderFactory;
+use App\Service\Feed\Types\Contract\ReaderInterface;
 use PHPUnit\Framework\TestCase;
 
-class FilterFactoryTest extends TestCase
+class ReaderFactoryTest extends TestCase
 {
-    public function testCreateSortFilter()
+    public function testCreateAtomReader()
     {
-        $filterName = 'sortByPrice';
+        $readerType = 'atom';
 
-        $filterFactory = new FilterFactory();
-        $filter = $filterFactory->create($filterName);
+        $readerFactory = new ReaderFactory();
+        $reader = $readerFactory->create($readerType, new \SimpleXMLElement('<root />'));
 
-        $this->assertInstanceOf(FilterInterface::class, $filter);
-    }
-
-    public function testCreateCodeFilter()
-    {
-        $filterName = 'code';
-
-        $filterFactory = new FilterFactory();
-        $filter = $filterFactory->create($filterName);
-
-        $this->assertInstanceOf(FilterInterface::class, $filter);
-    }
-
-    public function testCreateMaxPriceFilter()
-    {
-        $filterName = 'maxPrice';
-
-        $filterFactory = new FilterFactory();
-        $filter = $filterFactory->create($filterName);
-
-        $this->assertInstanceOf(FilterInterface::class, $filter);
-    }
-
-    public function testCreateMinPriceFilter()
-    {
-        $filterName = 'minPrice';
-
-        $filterFactory = new FilterFactory();
-        $filter = $filterFactory->create($filterName);
-
-        $this->assertInstanceOf(FilterInterface::class, $filter);
+        $this->assertInstanceOf(ReaderInterface::class, $reader);
     }
 }
