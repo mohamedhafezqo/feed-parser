@@ -1,12 +1,24 @@
 up:
+	docker-compose up -d
+	docker exec php-container composer install
+
+first:
+	make build
+	make create-db
+	make migrate-update
+
+build:
 	docker-compose up --build -d
 	docker exec php-container composer install
 
-fixtures:
-	docker exec php-container python load.py
+down:
+	docker-compose down --remove-orphans --volumes
 
-stats:
-	docker exec php-container bin/console delivery:statistics
+create-db:
+	docker exec php-container php bin/console doctrine:database:create --if-not-exists
+
+migrate-update:
+	docker exec php-container php bin/console doctrine:schema:update --force
 
 test:
 	docker exec php-container php bin/phpunit
