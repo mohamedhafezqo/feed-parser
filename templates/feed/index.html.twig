@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+{% block title %}Feeds Scrape Form {% endblock %}
+{% block body %}
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                {{ form_start(scrapeForm) }}
+                    <h2>Scrape Form</h2>
+                    <div class="form-group">
+                        {{ form_widget(scrapeForm) }}
+                    </div>
+                    <input type="submit" value="Submit" class="btn btn-success">
+                {{ form_end(scrapeForm) }}
+                <p>Examples</p>
+                <ul>
+                    <li>https://xkcd.com/atom.xml</li>
+                    <li>https://rss.dw.com/atom/rss-en-all</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
