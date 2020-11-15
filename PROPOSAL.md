@@ -3,12 +3,8 @@
 ![Sequence Diagram](sequence-diagram.png)
 
 ## Installation
-- Run `make up`
-- To index the data-set for first time 
-    - `make fixtures`
-    - #### Notes:-
-        - The last command may be take some time if we are trying to index a big file.
-        - Note the above command expecting the data set inside this file`recipe-data.json`
+- for first time `make first`
+- Create DB Run `make up`
 
 ## Run Tests
 - Run `make test`
