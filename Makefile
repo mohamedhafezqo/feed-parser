@@ -23,3 +23,6 @@ migrate-update:
 test:
 	docker exec php-container php bin/phpunit
 
+bash:
+	docker exec -it php-container bash
+
