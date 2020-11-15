@@ -3,9 +3,9 @@
 namespace App\Service\Feed;
 
 use App\Service\Feed\Contract\FeedReaderInterface;
-use App\Service\Feed\Contract\ReaderFactoryInterface;
+use App\Service\Feed\Contract\FormatterFactoryInterface;
 use App\Service\Parser\Contract\ParserInterface;
-use App\Service\Feed\Types\Contract\ReaderInterface;
+use App\Service\Feed\Formatters\Contract\FormatterInterface;
 
 /**
  * Class FeedReader
@@ -14,22 +14,22 @@ use App\Service\Feed\Types\Contract\ReaderInterface;
  */
 class FeedReader implements FeedReaderInterface
 {
-    private ReaderInterface $reader;
+    private FormatterInterface $formatter;
 
-    private ReaderFactoryInterface $readerFactory;
+    private FormatterFactoryInterface $formatterFactory;
 
     private ParserInterface $parser;
 
     /**
      * FeedReader constructor.
      *
-     * @param ReaderFactoryInterface $readerFactory
-     * @param ParserInterface      $parser
+     * @param FormatterFactoryInterface $formatterFactory
+     * @param ParserInterface           $parser
      */
-    public function __construct(ParserInterface $parser, ReaderFactoryInterface $readerFactory)
+    public function __construct(ParserInterface $parser, FormatterFactoryInterface $formatterFactory)
     {
         $this->parser = $parser;
-        $this->readerFactory = $readerFactory;
+        $this->formatterFactory = $formatterFactory;
     }
 
     /**
@@ -38,7 +38,7 @@ class FeedReader implements FeedReaderInterface
     public function read(string $url): FeedReaderInterface
     {
         $response = $this->parser->parse($url);
-        $this->reader = $this->readerFactory->create($this->parser->getType(), $response);
+        $this->formatter = $this->formatterFactory->create($this->parser->getType(), $response);
 
         return $this;
     }
@@ -60,7 +60,7 @@ class FeedReader implements FeedReaderInterface
      */
     public function getChannel()
     {
-        return $this->reader->getChannel();
+        return $this->formatter->getChannel();
     }
 
     /**
@@ -68,6 +68,6 @@ class FeedReader implements FeedReaderInterface
      */
     public function getEntities()
     {
-        return $this->reader->getEntities();
+        return $this->formatter->getEntities();
     }
 }

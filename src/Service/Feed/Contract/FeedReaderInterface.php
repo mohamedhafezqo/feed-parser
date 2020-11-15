@@ -19,7 +19,7 @@ interface FeedReaderInterface
     public function read(string $url): self;
 
     /**
-     * @param \App\Service\Parser\Contract\ParserInterface $parser
+     * @param ParserInterface $parser
      *
      * @return mixed
      */

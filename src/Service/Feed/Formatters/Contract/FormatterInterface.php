@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace App\Service\Feed\Types\Contract;
+namespace App\Service\Feed\Formatters\Contract;
 
 /**
  * Interface ReaderInterface
  *
  * @package App\Service\Feed\Types\Contract
  */
-interface ReaderInterface
+interface FormatterInterface
 {
     /**
      * @return mixed

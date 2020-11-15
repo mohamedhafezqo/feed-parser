@@ -2,20 +2,20 @@
 
 namespace App\Service\Feed\Contract;
 
-use App\Service\Feed\Types\Contract\ReaderInterface;
+use App\Service\Feed\Formatters\Contract\FormatterInterface;
 
 /**
  * Interface ReaderFactoryInterface
  *
  * @package App\Service\Feed\Contract
  */
-interface ReaderFactoryInterface
+interface FormatterFactoryInterface
 {
     /**
      * @param string $type
      * @param        $content
      *
-     * @return ReaderInterface
+     * @return FormatterInterface
      */
-    public function create(string $type, $content): ReaderInterface;
+    public function create(string $type, $content): FormatterInterface;
 }

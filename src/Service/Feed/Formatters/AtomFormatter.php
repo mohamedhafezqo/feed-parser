@@ -1,15 +1,15 @@
 <?php declare(strict_types=1);
 
-namespace App\Service\Feed\Types;
+namespace App\Service\Feed\Formatters;
 
-use App\Service\Feed\Types\Contract\ReaderInterface;
+use App\Service\Feed\Formatters\Contract\FormatterInterface;
 
 /**
- * Class AtomReader
+ * Class AtomFormatter
  *
- * @package App\Service\FeedReader\Types
+ * @package App\Service\Feed\Formatters
  */
-class AtomReader implements ReaderInterface
+class AtomFormatter implements FormatterInterface
 {
     private \SimpleXMLElement $root;
 
