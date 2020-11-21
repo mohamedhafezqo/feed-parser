@@ -2,7 +2,7 @@ up:
 	docker-compose up -d
 	docker exec php-container composer install
 
-first:
+init:
 	make build
 	make create-db
 	make migrate-update
