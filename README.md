@@ -4,7 +4,7 @@
 ![Class Diagram](class-diagram.png)
 
 ## Installation
-- First time only `make build`
+- First time only `make init`
 - For every time `make up`
 
 ## Run test cases
