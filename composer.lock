@@ -4603,39 +4603,40 @@
         },
         {
             "name": "symfony/security-core",
-            "version": "v5.1.11",
+            "version": "v5.2.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security-core.git",
-                "reference": "33a6d376ef0502f18bc498a076590372685f6e89"
+                "reference": "4ce2b1e532fb3bb591ad4efa8cc43afc9242a247"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-core/zipball/33a6d376ef0502f18bc498a076590372685f6e89",
-                "reference": "33a6d376ef0502f18bc498a076590372685f6e89",
+                "url": "https://api.github.com/repos/symfony/security-core/zipball/4ce2b1e532fb3bb591ad4efa8cc43afc9242a247",
+                "reference": "4ce2b1e532fb3bb591ad4efa8cc43afc9242a247",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.2.5",
                 "symfony/deprecation-contracts": "^2.1",
                 "symfony/event-dispatcher-contracts": "^1.1|^2",
-                "symfony/polyfill-php80": "^1.15",
+                "symfony/polyfill-php80": "^1.16",
                 "symfony/service-contracts": "^1.1.6|^2"
             },
             "conflict": {
                 "symfony/event-dispatcher": "<4.4",
                 "symfony/ldap": "<4.4",
-                "symfony/security-guard": "<4.4"
+                "symfony/security-guard": "<4.4",
+                "symfony/validator": "<5.2"
             },
             "require-dev": {
-                "psr/container": "^1.0",
-                "psr/log": "~1.0",
+                "psr/container": "^1.0|^2.0",
+                "psr/log": "^1|^2|^3",
                 "symfony/event-dispatcher": "^4.4|^5.0",
                 "symfony/expression-language": "^4.4|^5.0",
                 "symfony/http-foundation": "^4.4|^5.0",
                 "symfony/ldap": "^4.4|^5.0",
                 "symfony/translation": "^4.4|^5.0",
-                "symfony/validator": "^4.4|^5.0"
+                "symfony/validator": "^5.2"
             },
             "suggest": {
                 "psr/container-implementation": "To instantiate the Security class",
@@ -4671,7 +4672,7 @@
             "description": "Symfony Security Component - Core Library",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/security-core/tree/v5.1.11"
+                "source": "https://github.com/symfony/security-core/tree/v5.2.14"
             },
             "funding": [
                 {
@@ -4687,7 +4688,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-01-27T12:50:07+00:00"
+            "time": "2021-07-29T06:36:20+00:00"
         },
         {
             "name": "symfony/security-csrf",
